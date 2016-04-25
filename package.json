@@ -1,0 +1,24 @@
+{
+  "name": "galaga.js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "create": "nodejs node_modules/.bin/webpack js/app.js app.bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/BenjaBoy/galaga_js.git"
+  },
+  "author": "Benjamin Acevedo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BenjaBoy/galaga_js/issues"
+  },
+  "homepage": "https://github.com/BenjaBoy/galaga_js#readme",
+  "dependencies": {
+    "pixi.js": "^3.0.11",
+    "webpack": "^1.13.0"
+  }
+}
