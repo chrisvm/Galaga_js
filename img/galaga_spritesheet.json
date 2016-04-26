@@ -1,0 +1,28 @@
+{"frames": {
+
+"galaga_ship.png":
+{
+	"frame": {"x":1,"y":1,"w":82,"h":82},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":7,"y":7,"w":82,"h":82},
+	"sourceSize": {"w":96,"h":96}
+},
+"yellowSpaceBug.png":
+{
+	"frame": {"x":1,"y":85,"w":46,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":13,"w":46,"h":38},
+	"sourceSize": {"w":64,"h":64}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "galaga_spritesheet.png",
+	"format": "RGBA8888",
+	"size": {"w":84,"h":124},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:7e0b492504dcc1e21e0134d5e6675065:a3a05482d6d96cb1dfbda92bc1475989:f8d768633b01fad61a6d0395b2f22cee$"
+}
+}
