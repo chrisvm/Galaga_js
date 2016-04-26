@@ -1,16 +1,40 @@
 {"frames": {
 
-"galaga_ship.png":
+"commander.jpg":
 {
-	"frame": {"x":1,"y":1,"w":82,"h":82},
+	"frame": {"x":1,"y":1,"w":52,"h":56},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":7,"y":7,"w":82,"h":82},
-	"sourceSize": {"w":96,"h":96}
+	"spriteSourceSize": {"x":6,"y":4,"w":52,"h":56},
+	"sourceSize": {"w":64,"h":64}
+},
+"galaga_ship.gif":
+{
+	"frame": {"x":55,"y":1,"w":47,"h":50},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":47,"h":50},
+	"sourceSize": {"w":47,"h":50}
+},
+"redMinionBug.png":
+{
+	"frame": {"x":104,"y":1,"w":39,"h":44},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":7,"y":5,"w":39,"h":44},
+	"sourceSize": {"w":52,"h":55}
+},
+"scorpion.jpg":
+{
+	"frame": {"x":145,"y":1,"w":39,"h":40},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":13,"y":12,"w":39,"h":40},
+	"sourceSize": {"w":64,"h":64}
 },
 "yellowSpaceBug.png":
 {
-	"frame": {"x":1,"y":85,"w":46,"h":38},
+	"frame": {"x":186,"y":1,"w":46,"h":38},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":9,"y":13,"w":46,"h":38},
@@ -21,8 +45,8 @@
 	"version": "1.0",
 	"image": "galaga_spritesheet.png",
 	"format": "RGBA8888",
-	"size": {"w":84,"h":124},
+	"size": {"w":233,"h":58},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:7e0b492504dcc1e21e0134d5e6675065:a3a05482d6d96cb1dfbda92bc1475989:f8d768633b01fad61a6d0395b2f22cee$"
+	"smartupdate": "$TexturePacker:SmartUpdate:b1a52e801bd804868777b0c6e5ae47b5:b008816c54d3045364db3d5e5ebd3c46:f8d768633b01fad61a6d0395b2f22cee$"
 }
 }

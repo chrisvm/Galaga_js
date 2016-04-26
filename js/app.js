@@ -1,17 +1,33 @@
+var PIXI = require("pixi.js"),
+    $    = require("jquery");
+
+PIXI.loader
+    .add('img/galaga_spritesheet.json')
+    .load(onAssetsLoader);
+
+
 var renderer = PIXI.autoDetectRenderer(800, 600,{backgroundColor : 0x1099bb});
-$('body').append(renderer.view);
+document.body.appendChild(renderer.view);
 
 var stage =  new PIXI.Container();
 
-var texture = PIXI.Texture.fromFrame('galaga_ship2.png');
-var ship    = new PIXI.Sprite(texture);
+function onAssetsLoader(){
 
-ship.anchor.x = 400;
-ship.anchor.y = 300;
+    console.log("test");
 
-stage.add(ship);
+    var texture = PIXI.Texture.fromFrame('galaga_ship.gif');
 
-animate();
+    console.log("PIXI.Texture");
+    var ship    = new PIXI.Sprite(texture);
+
+    ship.position.x = 400;
+    ship.position.y = 300;
+
+    stage.addChild(ship);
+
+    animate();
+}
+
 
 function animate(){
     requestAnimationFrame(animate);
