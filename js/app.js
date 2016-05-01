@@ -22,10 +22,11 @@ document.body.appendChild(renderer.view);
 
 function onAssetsLoader(){
 
-    ship = Ship();
-    test = Commander();
 
-    //stage.addChild(test);
+    test = Commander();
+    ship = Ship();
+
+    stage.addChild(test);
     stage.addChild(ship);
 
     animate();

@@ -37,18 +37,21 @@ function Ship(){
         }
     });
 
+    console.log("ship Created")
     return ship;
 }
 
 function Commander(){
 
    var texture = new Array;
-       texture.push("commander.png", "commanderMove.png");
+       texture.push("commander.png");
+       texture.push("commanderMove.png");
 
     var commander = Player_Generator(texture);
 
     commander.position.set(200, 25);
 
+    console.log("commander Created");
     return commander;
 }
 
@@ -57,9 +60,9 @@ function Player_Generator(texture){
     var frames = [],
         player;
 
-    if (texture === Array) {
+    if (texture instanceof Array) {
         for(var index = 0; index < texture.length; index++) {
-            frames[index] = PIXI.Texture.fromImage(texture[index], null, PIXI.SCALE_MODES.NEAREST);
+            frames.push(PIXI.Texture.fromFrame(texture[index]));
         }
         // create a MovieClip(animation)
         player = new PIXI.extras.MovieClip(frames);
