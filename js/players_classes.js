@@ -2,14 +2,15 @@
  * Created by benjaboy on 04-30-16.
  */
 var PIXI = require("pixi.js");
-var width = 400, height = 400;
+var width  = 400;
+var height = 400;
 
 function Ship(){
 
-    var ship    = new PIXI.Sprite(PIXI.Texture.fromFrame('galaga_ship.png'));
+    var ship = Player_Generator('galaga_ship.png');
 
     ship.position.x = 200;
-    ship.position.y = 380;
+    ship.position.y = 360;
 
     //ship Movement
     window.addEventListener("keydown", function (key) {
@@ -36,31 +37,43 @@ function Ship(){
         }
     });
 
-    console.log("returning ship");
     return ship;
 }
 
 function Commander(){
 
-    var texture = ["commander.png", "commanderMove.png"];
-    var frames = [],
-        commander;
+   var texture = new Array;
+       texture.push("commander.png", "commanderMove.png");
 
-    for(var index = 0; index < texture.length; index++) {
-        frames[index] = new PIXI.Texture.fromImage(texture[index]);
-    }
-    // create a MovieClip (brings back memories from the days of Flash, right ?)
-    commander = new PIXI.extras.MovieClip(frames);
+    var commander = Player_Generator(texture);
 
-    /*
-     * A MovieClip inherits all the properties of a PIXI sprite
-     * so you can change its position, its anchor, mask it, etc
-     */
     commander.position.set(200, 25);
-    commander.anchor.set(0.5);
-    commander.animationSpeed = 0.03;
-
-    commander.play();
 
     return commander;
+}
+
+function Player_Generator(texture){
+
+    var frames = [],
+        player;
+
+    if (texture === Array) {
+        for(var index = 0; index < texture.length; index++) {
+            frames[index] = PIXI.Texture.fromImage(texture[index], null, PIXI.SCALE_MODES.NEAREST);
+        }
+        // create a MovieClip(animation)
+        player = new PIXI.extras.MovieClip(frames);
+
+        player.animationSpeed = 0.03;
+        player.play();
+
+    } else {
+        player = new PIXI.Sprite(PIXI.Texture.fromFrame(texture));
+    }
+
+    player.scale.x = 1.5;
+    player.scale.y = 1.5;
+    player.anchor.set(0.5);
+
+    return player;
 }

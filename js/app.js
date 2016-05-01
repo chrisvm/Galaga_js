@@ -10,7 +10,6 @@ var commanders = [],
     yellowBugs = [],
     redBugs    = [];
 
-
 $.getScript("js/players_classes.js");
 
 //load spriteSheet to cache
@@ -26,7 +25,7 @@ function onAssetsLoader(){
     ship = Ship();
     test = Commander();
 
-    stage.addChild(test);
+    //stage.addChild(test);
     stage.addChild(ship);
 
     animate();
