@@ -4,12 +4,12 @@
 var PIXI = require("pixi.js");
 var width = 400, height = 400;
 
-function Ship(shipTexture){
+function Ship(){
 
-    var ship    = new PIXI.Sprite(shipTexture);
+    var ship    = new PIXI.Sprite(PIXI.Texture.fromFrame('galaga_ship.png'));
 
-    ship.position.x = width/2;
-    ship.position.y = height - 20;
+    ship.position.x = 200;
+    ship.position.y = 380;
 
     //ship Movement
     window.addEventListener("keydown", function (key) {
@@ -36,11 +36,13 @@ function Ship(shipTexture){
         }
     });
 
+    console.log("returning ship");
     return ship;
 }
 
-function Commander(texture){
+function Commander(){
 
+    var texture = ["commander.png", "commanderMove.png"];
     var frames = [],
         commander;
 
@@ -55,7 +57,6 @@ function Commander(texture){
      * so you can change its position, its anchor, mask it, etc
      */
     commander.position.set(200, 25);
-
     commander.anchor.set(0.5);
     commander.animationSpeed = 0.03;
 
