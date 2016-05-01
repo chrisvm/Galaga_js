@@ -1,54 +1,188 @@
-{
-	"frames": {
+{"frames": {
 
-		"commander.jpg":
-		{
-			"frame": {"x":1,"y":1,"w":52,"h":56},
-			"rotated": false,
-			"trimmed": true,
-			"spriteSourceSize": {"x":6,"y":4,"w":52,"h":56},
-			"sourceSize": {"w":64,"h":64}
-		},
-		"galaga_ship.gif":
-		{
-			"frame": {"x":55,"y":1,"w":47,"h":50},
-			"rotated": false,
-			"trimmed": false,
-			"spriteSourceSize": {"x":0,"y":0,"w":47,"h":50},
-			"sourceSize": {"w":47,"h":50}
-		},
-		"redMinionBug.png":
-		{
-			"frame": {"x":104,"y":1,"w":39,"h":44},
-			"rotated": false,
-			"trimmed": true,
-			"spriteSourceSize": {"x":7,"y":5,"w":39,"h":44},
-			"sourceSize": {"w":52,"h":55}
-		},
-		"scorpion.jpg":
-		{
-			"frame": {"x":145,"y":1,"w":39,"h":40},
-			"rotated": false,
-			"trimmed": true,
-			"spriteSourceSize": {"x":13,"y":12,"w":39,"h":40},
-			"sourceSize": {"w":64,"h":64}
-		},
-		"yellowSpaceBug.png":
-		{
-			"frame": {"x":186,"y":1,"w":46,"h":38},
-			"rotated": false,
-			"trimmed": true,
-			"spriteSourceSize": {"x":9,"y":13,"w":46,"h":38},
-			"sourceSize": {"w":64,"h":64}
-		}
-	},
+"badBullet.png":
+{
+	"frame": {"x":42,"y":117,"w":5,"h":10},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":5,"h":10},
+	"sourceSize": {"w":5,"h":10}
+},
+"commander.png":
+{
+	"frame": {"x":83,"y":75,"w":15,"h":16},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":15,"h":16},
+	"sourceSize": {"w":15,"h":16}
+},
+"commanderDamage.png":
+{
+	"frame": {"x":83,"y":93,"w":15,"h":16},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":15,"h":16},
+	"sourceSize": {"w":15,"h":16}
+},
+"commanderDamageMove.png":
+{
+	"frame": {"x":100,"y":60,"w":15,"h":15},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":15,"h":15},
+	"sourceSize": {"w":15,"h":15}
+},
+"commanderMove.png":
+{
+	"frame": {"x":100,"y":77,"w":15,"h":15},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":15,"h":15},
+	"sourceSize": {"w":15,"h":15}
+},
+"explotion1.png":
+{
+	"frame": {"x":97,"y":32,"w":26,"h":26},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":26,"h":26},
+	"sourceSize": {"w":26,"h":26}
+},
+"explotion2.png":
+{
+	"frame": {"x":97,"y":1,"w":30,"h":29},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":30,"h":29},
+	"sourceSize": {"w":30,"h":29}
+},
+"explotion3.png":
+{
+	"frame": {"x":49,"y":59,"w":32,"h":34},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":34},
+	"sourceSize": {"w":32,"h":34}
+},
+"explotion4.png":
+{
+	"frame": {"x":49,"y":95,"w":32,"h":30},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":30},
+	"sourceSize": {"w":32,"h":30}
+},
+"galaga_ship.png":
+{
+	"frame": {"x":100,"y":94,"w":15,"h":15},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":15,"h":15},
+	"sourceSize": {"w":15,"h":15}
+},
+"icon_1.png":
+{
+	"frame": {"x":117,"y":60,"w":7,"h":12},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":7,"h":12},
+	"sourceSize": {"w":7,"h":12}
+},
+"icon_2.png":
+{
+	"frame": {"x":83,"y":59,"w":7,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":7,"h":14},
+	"sourceSize": {"w":7,"h":14}
+},
+"icon_3.png":
+{
+	"frame": {"x":100,"y":111,"w":13,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":13,"h":14},
+	"sourceSize": {"w":13,"h":14}
+},
+"icon_4.png":
+{
+	"frame": {"x":83,"y":111,"w":15,"h":16},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":15,"h":16},
+	"sourceSize": {"w":15,"h":16}
+},
+"redBug.png":
+{
+	"frame": {"x":1,"y":117,"w":13,"h":10},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":13,"h":10},
+	"sourceSize": {"w":13,"h":10}
+},
+"redBugMove.png":
+{
+	"frame": {"x":31,"y":117,"w":9,"h":10},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":9,"h":10},
+	"sourceSize": {"w":9,"h":10}
+},
+"shipBullet.png":
+{
+	"frame": {"x":117,"y":86,"w":5,"h":10},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":5,"h":10},
+	"sourceSize": {"w":5,"h":10}
+},
+"transporter1.png":
+{
+	"frame": {"x":1,"y":1,"w":46,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":46,"h":56},
+	"sourceSize": {"w":46,"h":56}
+},
+"transporter2.png":
+{
+	"frame": {"x":1,"y":59,"w":46,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":46,"h":56},
+	"sourceSize": {"w":46,"h":56}
+},
+"transporter3.png":
+{
+	"frame": {"x":49,"y":1,"w":46,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":46,"h":56},
+	"sourceSize": {"w":46,"h":56}
+},
+"yellowBug.png":
+{
+	"frame": {"x":16,"y":117,"w":13,"h":10},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":13,"h":10},
+	"sourceSize": {"w":13,"h":10}
+},
+"yellowBugMove.png":
+{
+	"frame": {"x":117,"y":74,"w":9,"h":10},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":9,"h":10},
+	"sourceSize": {"w":9,"h":10}
+}},
 "meta": {
 	"app": "http://www.codeandweb.com/texturepacker",
 	"version": "1.0",
 	"image": "galaga_spritesheet.png",
 	"format": "RGBA8888",
-	"size": {"w":233,"h":58},
+	"size": {"w":128,"h":128},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:b1a52e801bd804868777b0c6e5ae47b5:b008816c54d3045364db3d5e5ebd3c46:f8d768633b01fad61a6d0395b2f22cee$"
-	}
+	"smartupdate": "$TexturePacker:SmartUpdate:e82986b8605f2c39f75ff77e1e5bb0f5:226bc2f7945b172c4a7c865c7ccb0f3c:f8d768633b01fad61a6d0395b2f22cee$"
+}
 }

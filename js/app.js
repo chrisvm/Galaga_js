@@ -1,38 +1,44 @@
 var PIXI = require("pixi.js"),
     $    = require("jquery");
 
-function Ship(){
 
-    return ship;
-}
+$.getScript("js/players_classes.js");
 
+//load spriteSheet to cache
 PIXI.loader
     .add('img/galaga_spritesheet.json')
     .load(onAssetsLoader);
 
-var renderer = PIXI.autoDetectRenderer(800, 600,{backgroundColor : 0x1099bb});
+var width = 400, height = 400;
+var stage = new PIXI.Container();
+var ship;
+var test;
+var tag = false;
+var commanders = [],
+    yellowBugs = [],
+    redBugs    = [];
+
+
+var renderer = PIXI.autoDetectRenderer(width, height,{backgroundColor : 000000});
 document.body.appendChild(renderer.view);
 
-var stage = new PIXI.Container();
-//var ship  = Ship();
-
 function onAssetsLoader(){
+    var commanderTexture = ["commander.png", "commanderMove.png"];
 
-    var shipTexture = PIXI.Texture.fromFrame('galaga_ship.gif');
-    var ship    = new PIXI.Sprite(shipTexture);
+    ship = Ship(PIXI.Texture.fromFrame('galaga_ship.png'));
 
-    ship.position.x = 400;
-    ship.position.y = 540;
+    test = Commander(commanderTexture);
 
     stage.addChild(ship);
+    stage.addChild(test);
 
     animate();
 }
 
 
 function animate(){
-    requestAnimationFrame(animate);
-
     renderer.render(stage);
+
+    requestAnimationFrame(animate);
 }
 
