@@ -23,11 +23,15 @@ document.body.appendChild(renderer.view);
 function onAssetsLoader(){
 
 
-    test = Commander();
-    ship = Ship();
 
-    stage.addChild(test);
+    ship = Ship();
+    commanders = Commanders();
+
     stage.addChild(ship);
+
+    for (var index = 0; index < commanders.length; index++){
+        stage.addChild(commanders[index]);
+    }
 
     animate();
 }
