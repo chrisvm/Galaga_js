@@ -45,31 +45,101 @@ function Commanders(){
        texture.push("commander.png");
        texture.push("commanderMove.png");
 
-    var commanders = [];
-    var positions = new Array;
+    var commanders = new Array();
+    var positions  = new Array();
 
-    positions[0].x = 166;
-    positions[0].y = 25;
-
-    positions[1].x = 200;
-    positions[1].y = 25;
-
-    positions[2].x = 234;
-    positions[2].y = 25;
-
-    positions[2].x = 166;
-    positions[2].y = 25;
-
+    positions.push( {x: 164, y: 25},
+                    {x: 188, y: 25},//----
+                    {x: 212, y: 25},//----
+                    {x: 236, y: 25});
 
     for (var index = 0; index < positions.length; index++) {
         commanders[index] = Player_Generator(texture);
         commanders[index].position.set(positions[index].x, positions[index].y);
     }
 
-    console.log("commander Created");
-    console.log(positions[0].x + " : " + positions[0].y);
 
     return commanders;
+}
+
+function Red_Bugs(){
+
+    var texture = new Array;
+        texture.push("redBug.png");
+        texture.push("redBugMove.png");
+
+    var redBugs    = new Array;
+    var positions  = new Array;
+
+    //top row
+    positions.push( {x: 116, y: 45},
+                    {x: 140, y: 45},
+                    {x: 164, y: 45},
+                    {x: 188, y: 45},//-----
+                    {x: 212, y: 45},//-----
+                    {x: 236, y: 45},
+                    {x: 260, y: 45},
+                    {x: 284, y: 45});
+
+    //bottom row
+    positions.push( {x: 116, y: 65},
+                    {x: 140, y: 65},
+                    {x: 164, y: 65},
+                    {x: 188, y: 65},//-----
+                    {x: 212, y: 65},//-----
+                    {x: 236, y: 65},
+                    {x: 260, y: 65},
+                    {x: 284, y: 65});
+
+    for(var index = 0; index < positions.length; index++)
+    {
+        redBugs[index] = Player_Generator(texture);
+        redBugs[index].position.set(positions[index].x, positions[index].y);
+    }
+
+    return redBugs;
+}
+
+function Yellow_Bugs(){
+
+    var texture = new Array;
+    texture.push("yellowBug.png");
+    texture.push("yellowBugMove.png");
+
+    var yellowBugs = new Array;
+    var positions  = new Array;
+
+    //top row
+    positions.push( {x:  92, y: 85},
+                    {x: 116, y: 85},
+                    {x: 140, y: 85},
+                    {x: 164, y: 85},
+                    {x: 188, y: 85},//-----
+                    {x: 212, y: 85},//-----
+                    {x: 236, y: 85},
+                    {x: 260, y: 85},
+                    {x: 284, y: 85},
+                    {x: 308, y: 85});
+
+    //bottom row
+    positions.push( {x:  92, y: 105},
+                    {x: 116, y: 105},
+                    {x: 140, y: 105},
+                    {x: 164, y: 105},
+                    {x: 188, y: 105},//-----
+                    {x: 212, y: 105},//-----
+                    {x: 236, y: 105},
+                    {x: 260, y: 105},
+                    {x: 284, y: 105},
+                    {x: 308, y: 105});
+
+    for (var index = 0; index < positions.length; index++)
+    {
+        yellowBugs[index] = Player_Generator(texture);
+        yellowBugs[index].position.set(positions[index].x, positions[index].y);
+    }
+
+    return yellowBugs;
 }
 
 function Player_Generator(texture){

@@ -6,9 +6,15 @@ var ship;
 
 var test;
 var tag = false;
-var commanders = [],
-    yellowBugs = [],
-    redBugs    = [];
+var commanders = new Array,
+    yellowBugs = new Array,
+    redBugs    = new Array;
+
+var tag = new Array;
+
+tag.push(false);
+tag.push(false);
+tag.push(false);
 
 $.getScript("js/players_classes.js");
 
@@ -22,15 +28,23 @@ document.body.appendChild(renderer.view);
 
 function onAssetsLoader(){
 
-
-
-    ship = Ship();
+    ship       = Ship();
     commanders = Commanders();
+    yellowBugs = Yellow_Bugs();
+    redBugs    = Red_Bugs();
 
     stage.addChild(ship);
 
     for (var index = 0; index < commanders.length; index++){
         stage.addChild(commanders[index]);
+    }
+
+    for (var index = 0; index < yellowBugs.length; index++){
+        stage.addChild(yellowBugs[index]);
+    }
+
+    for (var index = 0; index < redBugs.length; index++){
+        stage.addChild(redBugs[index]);
     }
 
     animate();
@@ -39,6 +53,24 @@ function onAssetsLoader(){
 
 function animate(){
     renderer.render(stage);
+
+    if (tag[0] == true){
+        for (var index = 0; index < yellowBugs.length/4; index++){
+            yellowBugs[index].x += .09;
+        }
+
+    if(yellowBugs[yellowBugs.length/4 - 1].x > 185)
+        tag[0] = false;
+
+    } else {
+
+        for (var index = 0; index < yellowBugs.length/4; index++){
+            yellowBugs[index].x -= .09;
+        }
+
+        if(yellowBugs[yellowBugs.length/4 - 1].x < 180)
+            tag[0] = true;
+    }
 
     requestAnimationFrame(animate);
 }
