@@ -1,24 +1,20 @@
 var PIXI = require("pixi.js"),
     $    = require("jquery");
+
+$.getScript("js/players_classes.js");
+$.getScript("js/movement.js");
+
 var width = 400, height = 400;
 var stage = new PIXI.Container();
-var ship;
 
-var test;
-var tag = false;
+var ship;
 var commanders = new Array,
     yellowBugs = new Array,
     redBugs    = new Array;
 ///
 
-var tag = new Array;
-
-tag.push(false);
-tag.push(false);
-tag.push(false);
-tag.push(false);
-
-$.getScript("js/players_classes.js");
+var animTag  = false;
+var animIter = 0;
 
 //load spriteSheet to cache
 PIXI.loader
@@ -56,48 +52,15 @@ function onAssetsLoader(){
 function animate(){
     renderer.render(stage);
 
-    if (tag[0] == true){
-        for (var index = 0; index < yellowBugs.length/4; index++){
-            yellowBugs[index].x      += .05*(yellowBugs.length/4 - index);
-            yellowBugs[index + 10].x += .05*(yellowBugs.length/4 - index);
-
-            yellowBugs[index + 5].x  -= .05*(yellowBugs.length/4 + index);
-            yellowBugs[index + 15].x -= .05*(yellowBugs.length/4 + index);
-        }
-
-        for (var index = 0; index < redBugs.length/4; index++){
-            redBugs[index].x     += .05*(redBugs.length/4 - index);
-            redBugs[index + 8].x += .05*(redBugs.length/4 - index);
-
-            redBugs[index + 4].x  -= .05*(redBugs.length/4 + index);
-            redBugs[index + 12].x -= .05*(redBugs.length/4 + index);
-        }
-
-    if(yellowBugs[yellowBugs.length/4 - 1].x > 190)
-        tag[0] = false;
-
-    } else {
-
-        for (var index = 0; index < yellowBugs.length/4; index++){
-            yellowBugs[index].x      -= .05*(yellowBugs.length/4 - index);
-            yellowBugs[index + 10].x -= .05*(yellowBugs.length/4 - index);
-
-            yellowBugs[index + 5].x  += .05*(yellowBugs.length/4 + index);
-            yellowBugs[index + 15].x += .05*(yellowBugs.length/4 + index);
-        }
-
-        for (var index = 0; index < redBugs.length/4; index++){
-            redBugs[index].x     -= .05*(redBugs.length/4 - index);
-            redBugs[index + 8].x -= .05*(redBugs.length/4 - index);
-
-            redBugs[index + 4].x  += .05*(redBugs.length/4 + index);
-            redBugs[index + 12].x += .05*(redBugs.length/4 + index);
-        }
-        
-
-        if(yellowBugs[yellowBugs.length/4 - 1].x < 185)
-            tag[0] = true;
-    }
+    if(animTag)
+        yellowBugs = enemyMoveOut(yellowBugs);
+    // else
+    //     yellowBugs = enemyMoveIn(yellowBugs);
+    //
+    if(animIter == 1000)
+        animTag = true;
+    else if(animIter == 0)
+        animTag = false;
 
     requestAnimationFrame(animate);
 }
