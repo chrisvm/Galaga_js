@@ -15,6 +15,7 @@ var tag = new Array;
 tag.push(false);
 tag.push(false);
 tag.push(false);
+tag.push(false);
 
 $.getScript("js/players_classes.js");
 
@@ -56,19 +57,44 @@ function animate(){
 
     if (tag[0] == true){
         for (var index = 0; index < yellowBugs.length/4; index++){
-            yellowBugs[index].x += .09;
+            yellowBugs[index].x      += .05*(yellowBugs.length/4 - index);
+            yellowBugs[index + 10].x += .05*(yellowBugs.length/4 - index);
+
+            yellowBugs[index + 5].x  -= .05*(yellowBugs.length/4 + index);
+            yellowBugs[index + 15].x -= .05*(yellowBugs.length/4 + index);
         }
 
-    if(yellowBugs[yellowBugs.length/4 - 1].x > 185)
+        for (var index = 0; index < redBugs.length/4; index++){
+            redBugs[index].x     += .05*(redBugs.length/4 - index);
+            redBugs[index + 8].x += .05*(redBugs.length/4 - index);
+
+            redBugs[index + 4].x  -= .05*(redBugs.length/4 + index);
+            redBugs[index + 12].x -= .05*(redBugs.length/4 + index);
+        }
+
+    if(yellowBugs[yellowBugs.length/4 - 1].x > 190)
         tag[0] = false;
 
     } else {
 
         for (var index = 0; index < yellowBugs.length/4; index++){
-            yellowBugs[index].x -= .09;
+            yellowBugs[index].x      -= .05*(yellowBugs.length/4 - index);
+            yellowBugs[index + 10].x -= .05*(yellowBugs.length/4 - index);
+
+            yellowBugs[index + 5].x  += .05*(yellowBugs.length/4 + index);
+            yellowBugs[index + 15].x += .05*(yellowBugs.length/4 + index);
         }
 
-        if(yellowBugs[yellowBugs.length/4 - 1].x < 180)
+        for (var index = 0; index < redBugs.length/4; index++){
+            redBugs[index].x     -= .05*(redBugs.length/4 - index);
+            redBugs[index + 8].x -= .05*(redBugs.length/4 - index);
+
+            redBugs[index + 4].x  += .05*(redBugs.length/4 + index);
+            redBugs[index + 12].x += .05*(redBugs.length/4 + index);
+        }
+        
+
+        if(yellowBugs[yellowBugs.length/4 - 1].x < 185)
             tag[0] = true;
     }
 
