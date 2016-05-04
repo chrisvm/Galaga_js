@@ -9,6 +9,7 @@ var tag = false;
 var commanders = new Array,
     yellowBugs = new Array,
     redBugs    = new Array;
+///
 
 var tag = new Array;
 
