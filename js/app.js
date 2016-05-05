@@ -9,7 +9,7 @@ $.getScript("js/bullets.js");
 var width = 400, height = 400;
 var stage = new PIXI.Container();
 
-var ship;
+var ship, weapon;
 var commanders = new Array,
     yellowBugs = new Array,
     redBugs    = new Array;
@@ -29,11 +29,13 @@ document.body.appendChild(renderer.view);
 function onAssetsLoader(){
 
     ship       = Ship();
+    weapon     = Weapon();
     commanders = Commanders();
     yellowBugs = Yellow_Bugs();
     redBugs    = Red_Bugs();
 
     stage.addChild(ship);
+    stage.addChild(weapon);
 
     for (var index = 0; index < commanders.length; index++){
         stage.addChild(commanders[index]);
@@ -67,7 +69,7 @@ function animate(){
     requestAnimationFrame(animate);
 }
 
-
+///TODO Ship movement, make it move while key down; like first assignment.
 //ship Movement
 window.addEventListener("keydown", function (key) {
     // A Key is 65
@@ -92,10 +94,22 @@ window.addEventListener("keydown", function (key) {
         }
     }
 
-    var shootBullet;
-    //space bar
     if (key.keyCode === 32) {
-        ship.weapon.shootBullet(ship);
+        
+        weapon.visible = true;
+        weapon.shootBullet(ship);
+        weapon.position.y -= weapon.velocity;
+        
+        // while (weapon.visible) {
+        //     if (weapon.position.y > 0) {
+        //         weapon.position.y -= weapon.velocity;
+        //     }
+        //     else {
+        //         weapon.visible = false;
+        //         weapon.bulletShot--;
+        //         console.log("false");
+        //     }
+        // }
     }
 
 });

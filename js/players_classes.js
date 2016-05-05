@@ -15,8 +15,6 @@ function Ship(){
     
     ship.position.x = 200;
     ship.position.y = 380;
-
-    ship["weapon"] = Bullet();
    
     console.log("ship Created");
     return ship;
