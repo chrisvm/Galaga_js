@@ -95,7 +95,7 @@ window.addEventListener("keydown", function (key) {
     var shootBullet;
     //space bar
     if (key.keyCode === 32) {
-        ship.weapon.shootBullet(ship.position.x, ship.position.y);
+        ship.weapon.shootBullet(ship);
     }
 
 });
