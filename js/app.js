@@ -55,6 +55,17 @@ function onAssetsLoader(){
 
 function animate(){
     renderer.render(stage);
+    
+    if(weapon.visible) {
+        if (weapon.position.y > 0)
+            weapon.position.y -= weapon.velocity;
+        else {
+            weapon.visible = false;
+            weapon.bulletShot--;
+            console.log("false");
+        }
+    }
+    
 
     // if(animTag)
     //     yellowBugs = enemyMoveOut(yellowBugs);
@@ -96,19 +107,10 @@ window.addEventListener("keydown", function (key) {
 
     if (key.keyCode === 32) {
         
-        weapon.visible = true;
         weapon.shootBullet(ship);
-        weapon.position.y -= weapon.velocity;
-        
+
         // while (weapon.visible) {
-        //     if (weapon.position.y > 0) {
-        //         weapon.position.y -= weapon.velocity;
-        //     }
-        //     else {
-        //         weapon.visible = false;
-        //         weapon.bulletShot--;
-        //         console.log("false");
-        //     }
+        //    
         // }
     }
 

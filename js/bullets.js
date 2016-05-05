@@ -22,15 +22,15 @@ function Weapon(){
     weapon['bulletsShot'] = 0;
     weapon['shootBullet'] = function (shooter) {
                                 if (weapon.bulletsShot < 2) {
-                                    console.log(weapon.visible + ", " + shooter.position.y);
+                                    weapon.visible = true;
+                                   // console.log(weapon.visible + ", " + shooter.position.y);
                                     weapon.position.x  = shooter.position.x;
                                     weapon.position.y  = shooter.position.y;
                                     //console.log(weapon.position.y);
 
                                     weapon["velocity"] = 0.5;
                                     weapon.bulletsShot++;
-                        
-                                    console.log(weapon.bulletsShot);
+                                    console.log("bullet shot");
                                 }
                             };
     return weapon;
