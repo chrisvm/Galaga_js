@@ -5,6 +5,7 @@ $.getScript("js/players_classes.js");
 $.getScript("js/movement.js");
 $.getScript("js/bullets.js");
 
+
 var width = 400, height = 400;
 var stage = new PIXI.Container();
 
@@ -76,7 +77,7 @@ window.addEventListener("keydown", function (key) {
         if (ship.position.x > 15) {
             // Don't move to the left if the player is at the left side of the stage
             ship.position.x -= 3;
-            console.log("right");
+            //console.log("right");
         }
     }
 
@@ -87,20 +88,14 @@ window.addEventListener("keydown", function (key) {
         if (ship.position.x < 385) {
             // Don't move to the right if the player is at the right side of the stage
             ship.position.x += 3;
-            console.log("left");
+            //console.log("left");
         }
     }
 
-    // var shootBullet;
-    // //space bar
-    // if (key.keyCode === 32) {
-    //     shootBullet = function () {
-    //         this["bullet"] = new PIXI.Sprite(PIXI.Texture.fromFrame("shipBullet.png"));
-    //         this.bullet.position.x = this.position.x;
-    //         this.bullet.position.y = this.position.y + 2;
-    //
-    //         this["inBounds"] = true;
-    //     }
-    // }
+    var shootBullet;
+    //space bar
+    if (key.keyCode === 32) {
+        ship.weapon.shootBullet(ship.position.x, ship.position.y);
+    }
 
 });

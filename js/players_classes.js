@@ -1,7 +1,12 @@
 /**
  * Created by benjaboy on 04-30-16.
  */
-var PIXI = require("pixi.js");
+var PIXI = require("pixi.js"),
+    $    = require("jquery");
+
+
+$.getScript("js/bullets.js");
+
 
 function Ship(){
 
@@ -11,6 +16,7 @@ function Ship(){
     ship.position.x = 200;
     ship.position.y = 380;
 
+    ship["weapon"] = Bullet();
    
     console.log("ship Created");
     return ship;
