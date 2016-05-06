@@ -4,8 +4,10 @@ var PIXI = require("pixi.js"),
 $.getScript("js/players_classes.js");
 $.getScript("js/movement.js");
 $.getScript("js/bullets.js");
+$.getScript("js/listeners.js");
 
-var left = false, right = false;
+
+var left = false, right = false;//use for ship movement
 var width = 400, height = 400;
 var stage = new PIXI.Container();
 
@@ -49,44 +51,57 @@ function onAssetsLoader(){
     animate();
 }
 
-
-function animate(){
+function animate() {
     renderer.render(stage);
-    
+
     if (left)
         ship.position.x -= 3;
-    
-    if(right)
+
+    if (right)
         ship.position.x += 3;
-    
-    if(bullets[0].visible) {
-        if (bullets[0].position.y > 0)
-            bullets[0].position.y -= bullets.velocity*5;
+
+    if (bullets[0].visible) {
+        if (bullets[0].position.y > 0) {
+            bullets[0].position.y -= bullets.velocity * 5;
+
+            ///TODO: in collition r1.position ot working.
+            for (bug in yellowBugs){
+                if(collision(bug, bullets[0])){
+                    bullets[0].visible = false;
+                    bullets[0].used    = false;
+                    bug.visible        = false;
+                    break;
+                }
+            }
+            
+        }
         else {
             bullets[0].visible = false;
-            bullets[0].used    = false;
+            bullets[0].used = false;
             bullets.bulletShot--;
-            console.log("false");
         }
     }
 
-    if(bullets[1].visible) {
+    if (bullets[1].visible) {
         if (bullets[1].position.y > 0)
-            bullets[1].position.y -= bullets.velocity*5;
+            bullets[1].position.y -= bullets.velocity * 5;
         else {
             bullets[1].visible = false;
-            bullets[1].used    = false;
+            bullets[1].used = false;
             bullets.bulletShot--;
-            console.log("false");
         }
     }
 
     requestAnimationFrame(animate);
 }
 
-///TODO Ship movement, make it move while key down; like first assignment.
+function collision(r1, r2) {
+    return (3 > Math.sqrt((r1.position.x - r2.position.x)*(r1.position.x - r2.position.x) + 
+                         (r1.position.y - r2.position.y)*(r1.position.y - r2.position.y)))
 
-//ship Movement
+}
+
+//Ship movement
 window.addEventListener("keydown", function (key) {
     // A Key is 65
     // Left arrow is 37
@@ -128,3 +143,4 @@ window.addEventListener("keyup", function (key) {
         bullets.shootBullet(ship);
 
 });
+
