@@ -9,14 +9,10 @@ $.getScript("js/bullets.js");
 var width = 400, height = 400;
 var stage = new PIXI.Container();
 
-var ship, weapon;
+var ship, bullets;
 var commanders = new Array,
     yellowBugs = new Array,
     redBugs    = new Array;
-///
-
-var animTag  = false;
-var animIter = 0;
 
 //load spriteSheet to cache
 PIXI.loader
@@ -29,13 +25,14 @@ document.body.appendChild(renderer.view);
 function onAssetsLoader(){
 
     ship       = Ship();
-    weapon     = Weapon();
+    bullets    = Weapon();
     commanders = Commanders();
     yellowBugs = Yellow_Bugs();
     redBugs    = Red_Bugs();
 
     stage.addChild(ship);
-    stage.addChild(weapon);
+    stage.addChild(bullets[0]);
+    stage.addChild(bullets[1]);
 
     for (var index = 0; index < commanders.length; index++){
         stage.addChild(commanders[index]);
@@ -56,31 +53,33 @@ function onAssetsLoader(){
 function animate(){
     renderer.render(stage);
     
-    if(weapon.visible) {
-        if (weapon.position.y > 0)
-            weapon.position.y -= weapon.velocity;
+    if(bullets[0].visible) {
+        if (bullets[0].position.y > 0)
+            bullets[0].position.y -= bullets.velocity*5;
         else {
-            weapon.visible = false;
-            weapon.bulletShot--;
+            bullets[0].visible = false;
+            bullets[0].used    = false;
+            bullets.bulletShot--;
             console.log("false");
         }
     }
-    
 
-    // if(animTag)
-    //     yellowBugs = enemyMoveOut(yellowBugs);
-    // // else
-    // //     yellowBugs = enemyMoveIn(yellowBugs);
-    // //
-    // if(animIter == 1000)
-    //     animTag = true;
-    // else if(animIter == 0)
-    //     animTag = false;
+    if(bullets[1].visible) {
+        if (bullets[1].position.y > 0)
+            bullets[1].position.y -= bullets.velocity*5;
+        else {
+            bullets[1].visible = false;
+            bullets[1].used    = false;
+            bullets.bulletShot--;
+            console.log("false");
+        }
+    }
 
     requestAnimationFrame(animate);
 }
 
 ///TODO Ship movement, make it move while key down; like first assignment.
+
 //ship Movement
 window.addEventListener("keydown", function (key) {
     // A Key is 65
@@ -106,12 +105,7 @@ window.addEventListener("keydown", function (key) {
     }
 
     if (key.keyCode === 32) {
-        
-        weapon.shootBullet(ship);
-
-        // while (weapon.visible) {
-        //    
-        // }
+        bullets.shootBullet(ship);
     }
 
 });
