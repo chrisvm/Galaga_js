@@ -1,40 +1,21 @@
 /**
  * Created by benjaboy on 04-30-16.
  */
-var PIXI = require("pixi.js");
+var PIXI = require("pixi.js"),
+    $    = require("jquery");
+
+
+$.getScript("js/bullets.js");
+
 
 function Ship(){
 
     var ship = Player_Generator('galaga_ship.png');
-
+    
+    
     ship.position.x = 200;
     ship.position.y = 380;
-
-    //ship Movement
-    window.addEventListener("keydown", function (key) {
-        // A Key is 65
-        // Left arrow is 37
-        if (key.keyCode === 65 || key.keyCode === 37) {
-            // If the A key or the Left arrow is pressed, move the player to the left.
-            if (ship.position.x > 15) {
-                // Don't move to the left if the player is at the left side of the stage
-                ship.position.x -= 3;
-                console.log("right");
-            }
-        }
-
-        // D Key is 68
-        // Right arrow is 39
-        if (key.keyCode === 68 || key.keyCode === 39) {
-            // If the D key or the Right arrow is pressed, move the player to the right.
-            if (ship.position.x < 385) {
-                // Don't move to the right if the player is at the right side of the stage
-                ship.position.x += 3;
-                console.log("left");
-            }
-        }
-    });
-
+   
     console.log("ship Created");
     return ship;
 }
@@ -154,7 +135,7 @@ function Player_Generator(texture){
         // create a MovieClip(animation)
         player = new PIXI.extras.MovieClip(frames);
 
-        player.animationSpeed = 0.03;
+        player.animationSpeed = 0.015;
         player.play();
 
     } else {
@@ -167,3 +148,4 @@ function Player_Generator(texture){
 
     return player;
 }
+

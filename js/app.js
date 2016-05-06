@@ -3,18 +3,16 @@ var PIXI = require("pixi.js"),
 
 $.getScript("js/players_classes.js");
 $.getScript("js/movement.js");
+$.getScript("js/bullets.js");
+
 
 var width = 400, height = 400;
 var stage = new PIXI.Container();
 
-var ship;
+var ship, bullets;
 var commanders = new Array,
     yellowBugs = new Array,
     redBugs    = new Array;
-///
-
-var animTag  = false;
-var animIter = 0;
 
 //load spriteSheet to cache
 PIXI.loader
@@ -27,11 +25,14 @@ document.body.appendChild(renderer.view);
 function onAssetsLoader(){
 
     ship       = Ship();
+    bullets    = Weapon();
     commanders = Commanders();
     yellowBugs = Yellow_Bugs();
     redBugs    = Red_Bugs();
 
     stage.addChild(ship);
+    stage.addChild(bullets[0]);
+    stage.addChild(bullets[1]);
 
     for (var index = 0; index < commanders.length; index++){
         stage.addChild(commanders[index]);
@@ -51,17 +52,60 @@ function onAssetsLoader(){
 
 function animate(){
     renderer.render(stage);
+    
+    if(bullets[0].visible) {
+        if (bullets[0].position.y > 0)
+            bullets[0].position.y -= bullets.velocity*5;
+        else {
+            bullets[0].visible = false;
+            bullets[0].used    = false;
+            bullets.bulletShot--;
+            console.log("false");
+        }
+    }
 
-    if(animTag)
-        yellowBugs = enemyMoveOut(yellowBugs);
-    // else
-    //     yellowBugs = enemyMoveIn(yellowBugs);
-    //
-    if(animIter == 1000)
-        animTag = true;
-    else if(animIter == 0)
-        animTag = false;
+    if(bullets[1].visible) {
+        if (bullets[1].position.y > 0)
+            bullets[1].position.y -= bullets.velocity*5;
+        else {
+            bullets[1].visible = false;
+            bullets[1].used    = false;
+            bullets.bulletShot--;
+            console.log("false");
+        }
+    }
 
     requestAnimationFrame(animate);
 }
 
+///TODO Ship movement, make it move while key down; like first assignment.
+
+//ship Movement
+window.addEventListener("keydown", function (key) {
+    // A Key is 65
+    // Left arrow is 37
+    if (key.keyCode === 65 || key.keyCode === 37) {
+        // If the A key or the Left arrow is pressed, move the player to the left.
+        if (ship.position.x > 15) {
+            // Don't move to the left if the player is at the left side of the stage
+            ship.position.x -= 3;
+            //console.log("right");
+        }
+    }
+
+    // D Key is 68
+    // Right arrow is 39
+    if (key.keyCode === 68 || key.keyCode === 39) {
+        // If the D key or the Right arrow is pressed, move the player to the right.
+        if (ship.position.x < 385) {
+            // Don't move to the right if the player is at the right side of the stage
+            ship.position.x += 3;
+            //console.log("left");
+        }
+    }
+
+    if (key.keyCode === 32) {
+        bullets.shootBullet(ship);
+    }
+
+});
