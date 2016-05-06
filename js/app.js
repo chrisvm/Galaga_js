@@ -5,7 +5,7 @@ $.getScript("js/players_classes.js");
 $.getScript("js/movement.js");
 $.getScript("js/bullets.js");
 
-
+var left = false, right = false;
 var width = 400, height = 400;
 var stage = new PIXI.Container();
 
@@ -53,6 +53,12 @@ function onAssetsLoader(){
 function animate(){
     renderer.render(stage);
     
+    if (left)
+        ship.position.x -= 3;
+    
+    if(right)
+        ship.position.x += 3;
+    
     if(bullets[0].visible) {
         if (bullets[0].position.y > 0)
             bullets[0].position.y -= bullets.velocity*5;
@@ -88,8 +94,7 @@ window.addEventListener("keydown", function (key) {
         // If the A key or the Left arrow is pressed, move the player to the left.
         if (ship.position.x > 15) {
             // Don't move to the left if the player is at the left side of the stage
-            ship.position.x -= 3;
-            //console.log("right");
+            left = true;
         }
     }
 
@@ -99,13 +104,27 @@ window.addEventListener("keydown", function (key) {
         // If the D key or the Right arrow is pressed, move the player to the right.
         if (ship.position.x < 385) {
             // Don't move to the right if the player is at the right side of the stage
-            ship.position.x += 3;
-            //console.log("left");
+            right = true;
         }
     }
 
-    if (key.keyCode === 32) {
+    if (key.keyCode === 32)
         bullets.shootBullet(ship);
-    }
+
+});
+
+window.addEventListener("keyup", function (key) {
+    // A Key is 65
+    // Left arrow is 37
+    if (key.keyCode === 65 || key.keyCode === 37)
+        left =  false;
+
+    // D Key is 68
+    // Right arrow is 39
+    if (key.keyCode === 68 || key.keyCode === 39)
+        right =  false;
+
+    if (key.keyCode === 32)
+        bullets.shootBullet(ship);
 
 });
