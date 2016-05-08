@@ -4,7 +4,6 @@ var PIXI = require("pixi.js"),
 $.getScript("js/players_classes.js");
 $.getScript("js/movement.js");
 $.getScript("js/bullets.js");
-$.getScript("js/listeners.js");
 
 
 var left = false, right = false;//use for ship movement
@@ -64,16 +63,9 @@ function animate() {
         if (bullets[0].position.y > 0) {
             bullets[0].position.y -= bullets.velocity * 5;
 
-            ///TODO: in collition r1.position ot working.
-            for (bug in yellowBugs){
-                if(collision(bug, bullets[0])){
-                    bullets[0].visible = false;
-                    bullets[0].used    = false;
-                    bug.visible        = false;
-                    break;
-                }
-            }
-            
+            filterCollision(yellowBugs, bullets[0]);
+            filterCollision(redBugs, bullets[0]);
+            filterCollision(commanders, bullets[0]);
         }
         else {
             bullets[0].visible = false;
@@ -83,8 +75,14 @@ function animate() {
     }
 
     if (bullets[1].visible) {
-        if (bullets[1].position.y > 0)
+        if (bullets[1].position.y > 0){
             bullets[1].position.y -= bullets.velocity * 5;
+            
+            filterCollision(yellowBugs, bullets[1]);
+            filterCollision(redBugs, bullets[1]);
+            filterCollision(commanders, bullets[1]);
+        }
+
         else {
             bullets[1].visible = false;
             bullets[1].used = false;
@@ -93,12 +91,6 @@ function animate() {
     }
 
     requestAnimationFrame(animate);
-}
-
-function collision(r1, r2) {
-    return (3 > Math.sqrt((r1.position.x - r2.position.x)*(r1.position.x - r2.position.x) + 
-                         (r1.position.y - r2.position.y)*(r1.position.y - r2.position.y)))
-
 }
 
 //Ship movement
