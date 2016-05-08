@@ -54,13 +54,14 @@ function animate() {
     renderer.render(stage);
 
     if (left)
-        ship.position.x -= 3;
+        ship.position.x -= 2;
 
     if (right)
-        ship.position.x += 3;
+        ship.position.x += 2;
 
     if (bullets[0].visible) {
         if (bullets[0].position.y > 0) {
+            
             bullets[0].position.y -= bullets.velocity * 5;
 
             filterCollision(yellowBugs, bullets[0]);
@@ -76,6 +77,7 @@ function animate() {
 
     if (bullets[1].visible) {
         if (bullets[1].position.y > 0){
+            
             bullets[1].position.y -= bullets.velocity * 5;
             
             filterCollision(yellowBugs, bullets[1]);
@@ -130,9 +132,5 @@ window.addEventListener("keyup", function (key) {
     // Right arrow is 39
     if (key.keyCode === 68 || key.keyCode === 39)
         right =  false;
-
-    if (key.keyCode === 32)
-        bullets.shootBullet(ship);
-
 });
 

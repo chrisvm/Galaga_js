@@ -67,7 +67,6 @@ function collision(r1, r2) {
     return (15 > distance)
 }
 
-
 ///TODO: Make collision between commanders work
 function filterCollision(bugs, bullet){
     for (var index = 0; index < bugs.length; index++){
