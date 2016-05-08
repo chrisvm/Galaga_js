@@ -59,7 +59,6 @@ function Weapon(){
     return bullets;
 }
 
-
 function collision(r1, r2) {
     var distance = Math.sqrt((r1.position.x - r2.position.x)*(r1.position.x - r2.position.x) +
         (r1.position.y - r2.position.y)*(r1.position.y - r2.position.y));

@@ -25,6 +25,8 @@ function Commanders(){
    var texture = new Array;
        texture.push("commander.png");
        texture.push("commanderMove.png");
+       texture.push("commanderDamage.png");
+       texture.push("commanderDamageMove.png");
 
     var commanders = new Array();
     var positions  = new Array();
