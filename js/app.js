@@ -10,7 +10,7 @@ var left = false, right = false;//use for ship movement
 var width = 400, height = 400;
 var stage = new PIXI.Container();
 
-var ship, bullets, explosion;
+var ship, bullets;
 var commanders = new Array,
     yellowBugs = new Array,
     redBugs    = new Array;
