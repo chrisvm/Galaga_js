@@ -8,8 +8,6 @@ var PIXI = require("pixi.js"),
 $.getScript("js/app.js");
 
 
-///TODO: "implement 2 bullets in bullets"
-
 function Weapon(){
     var bullets = [];
     bullets.push(new PIXI.Sprite(PIXI.Texture.fromFrame("bullet.png")));
@@ -67,6 +65,7 @@ function collision(r1, r2) {
 }
 
 ///TODO: Make collision between commanders work
+///TODO: When hit disable movement so explosion stays in place.
 function filterCollision(bugs, bullet){
     for (var index = 0; index < bugs.length; index++){
         if(bugs[index][0].visible){

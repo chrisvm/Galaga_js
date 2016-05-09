@@ -2,15 +2,22 @@
  * Created by benjamin on 05-04-16.
  */
 
-var redLeft  = new Map(),
-    redRight = new Map(),
-    yellowLeft  = new Map(),
+var redLeft,
+    redRight,
+    yellowLeft,
+    yellowRight;
+
+var tag;
+
+
+function mapInit(){
+    
+    tag = true;
+
+    redLeft  = new Map();
+    redRight = new Map();
+    yellowLeft  = new Map();
     yellowRight = new Map();
-
-var tag = true;
-
-
-function mappInit(){
 
 //right
     redRight.set(7, .22);
@@ -35,27 +42,26 @@ function mappInit(){
     yellowRight.set(8, .22);
     yellowRight.set(7, .19);
     yellowRight.set(6, .16);
-    yellowRight.set(5, .13);
+    yellowRight.set(5, .12);
     yellowRight.set(19, .25);
     yellowRight.set(18, .22);
     yellowRight.set(17, .19);
     yellowRight.set(16, .16);
-    yellowRight.set(15, .13);
+    yellowRight.set(15, .12);
 
     yellowLeft.set(0, .25);
     yellowLeft.set(1, .22);
     yellowLeft.set(2, .19);
     yellowLeft.set(3, .16);
-    yellowLeft.set(4, .13);
+    yellowLeft.set(4, .12);
     yellowLeft.set(10, .25);
     yellowLeft.set(11, .22);
     yellowLeft.set(12, .19);
     yellowLeft.set(13, .16);
-    yellowLeft.set(14, .13);
-
+    yellowLeft.set(14, .12);
 }
 
-mappInit();
+mapInit();
 
 function enemyMove(bugArray){
 
@@ -68,6 +74,7 @@ function enemyMove(bugArray){
     return bugArray;
 }
 
+///TODO: Fix bug; after some seconds of iteration bugs go crazy.
 function filterBugs(bugArray, mappingRight, mappingLeft, middle) {
     
     for (var index = 0; index < bugArray.length; index++){
@@ -75,6 +82,9 @@ function filterBugs(bugArray, mappingRight, mappingLeft, middle) {
         if(mappingRight.has(index) && tag) {
             if(bugArray[middle][0].position.x > 220){
                 tag = false;
+                index--;
+                bugArray[index][0].position.x -= mappingRight.get(index);
+                bugArray[index][1].position.x -= mappingRight.get(index);
             }
             else{
                 bugArray[index][0].position.x += mappingRight.get(index);
@@ -84,6 +94,9 @@ function filterBugs(bugArray, mappingRight, mappingLeft, middle) {
         else if (mappingRight.has(index) && !tag) {
             if(bugArray[middle][0].position.x <= 213) {
                 tag = true;
+                index--;
+                bugArray[index][0].position.x += mappingRight.get(index);
+                bugArray[index][1].position.x += mappingRight.get(index);
             }
             else{
                 bugArray[index][0].position.x -= mappingRight.get(index);
@@ -101,17 +114,5 @@ function filterBugs(bugArray, mappingRight, mappingLeft, middle) {
         }
     }
     
-    return bugArray;
-}
-
-
-function enemyMoveIn(bugArray){
-    var index = 0;
-
-    for (var bug in bugArray){
-        // bugArray[index][0].position.x -= redLeft.get(bug[0].position.x);
-        // bugArray[index][1].position.x -= redLeft.get(bug[1].position.x);
-        index ++;
-    }
     return bugArray;
 }
