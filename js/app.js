@@ -64,6 +64,9 @@ function animate() {
     if (right)
         ship.position.x += 2;
 
+    redBugs    = enemyMove(redBugs);
+    yellowBugs = enemyMove(yellowBugs);
+
     for (var index = 0; index < bullets.length; index++){
         if (bullets[index].visible) {
             if (bullets[index].position.y > 0) {
@@ -95,7 +98,8 @@ window.addEventListener("keydown", function (key) {
         if (ship.position.x > 15) {
             // Don't move to the left if the player is at the left side of the stage
             left = true;
-        }
+        } else 
+            left = false;
     }
 
     // D Key is 68
@@ -105,7 +109,8 @@ window.addEventListener("keydown", function (key) {
         if (ship.position.x < 385) {
             // Don't move to the right if the player is at the right side of the stage
             right = true;
-        }
+        } else 
+            right = false;
     }
 
     if (key.keyCode === 32)
