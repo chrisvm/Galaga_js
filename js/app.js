@@ -64,37 +64,22 @@ function animate() {
     if (right)
         ship.position.x += 2;
 
-    if (bullets[0].visible) {
-        if (bullets[0].position.y > 0) {
-            
-            bullets[0].position.y -= bullets.velocity * 5;
+    for (var index = 0; index < bullets.length; index++){
+        if (bullets[index].visible) {
+            if (bullets[index].position.y > 0) {
 
-            filterCollision(yellowBugs, bullets[0]);
-            filterCollision(redBugs, bullets[0]);
-            filterCollision(commanders, bullets[0]);
-            
-        }
-        else {
-            bullets[0].visible = false;
-            bullets[0].used = false;
-            bullets.bulletShot--;
-        }
-    }
+                bullets[index].position.y -= bullets.velocity * 5;
 
-    if (bullets[1].visible) {
-        if (bullets[1].position.y > 0){
-            
-            bullets[1].position.y -= bullets.velocity * 5;
-            
-            filterCollision(yellowBugs, bullets[1]);
-            filterCollision(redBugs,    bullets[1]);
-            filterCollision(commanders, bullets[1]);
-        }
+                filterCollision(yellowBugs, bullets[index]);
+                filterCollision(redBugs, bullets[index]);
+                filterCollision(commanders, bullets[index]);
 
-        else {
-            bullets[1].visible = false;
-            bullets[1].used = false;
-            bullets.bulletShot--;
+            }
+            else {
+                bullets[index].visible = false;
+                bullets[index].used = false;
+                bullets.bulletShot--;
+            }
         }
     }
 
