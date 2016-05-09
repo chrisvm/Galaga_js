@@ -10,7 +10,7 @@ var left = false, right = false;//use for ship movement
 var width = 400, height = 400;
 var stage = new PIXI.Container();
 
-var ship, bullets;
+var ship, bullets, explosion;
 var commanders = new Array,
     yellowBugs = new Array,
     redBugs    = new Array;
@@ -30,21 +30,26 @@ function onAssetsLoader(){
     commanders = Commanders();
     yellowBugs = Yellow_Bugs();
     redBugs    = Red_Bugs();
+   // explosion  = Explosion();
 
     stage.addChild(ship);
     stage.addChild(bullets[0]);
     stage.addChild(bullets[1]);
+    //stage.addChild(explosion);
 
     for (var index = 0; index < commanders.length; index++){
-        stage.addChild(commanders[index]);
+        stage.addChild(commanders[index][0]);
+        stage.addChild(commanders[index][1]);
     }
 
     for (var index = 0; index < yellowBugs.length; index++){
-        stage.addChild(yellowBugs[index]);
+        stage.addChild(yellowBugs[index][0]);
+        stage.addChild(yellowBugs[index][1]);
     }
 
     for (var index = 0; index < redBugs.length; index++){
-        stage.addChild(redBugs[index]);
+        stage.addChild(redBugs[index][1]);
+        stage.addChild(redBugs[index][0]);
     }
 
     animate();
@@ -67,6 +72,7 @@ function animate() {
             filterCollision(yellowBugs, bullets[0]);
             filterCollision(redBugs, bullets[0]);
             filterCollision(commanders, bullets[0]);
+            
         }
         else {
             bullets[0].visible = false;
@@ -81,7 +87,7 @@ function animate() {
             bullets[1].position.y -= bullets.velocity * 5;
             
             filterCollision(yellowBugs, bullets[1]);
-            filterCollision(redBugs, bullets[1]);
+            filterCollision(redBugs,    bullets[1]);
             filterCollision(commanders, bullets[1]);
         }
 

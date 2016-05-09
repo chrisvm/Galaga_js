@@ -1,52 +1,172 @@
 {"frames": {
 
-"explotionE2.png":
+"blanc.png":
 {
-	"frame": {"x":131,"y":67,"w":18,"h":18},
+	"frame": {"x":29,"y":57,"w":3,"h":3},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":2,"y":1,"w":18,"h":18},
-	"sourceSize": {"w":23,"h":21}
+	"spriteSourceSize": {"x":0,"y":0,"w":3,"h":3},
+	"sourceSize": {"w":11,"h":11}
 },
-"explotionE3.png":
+"bullet.png":
 {
-	"frame": {"x":131,"y":35,"w":32,"h":30},
+	"frame": {"x":121,"y":53,"w":5,"h":10},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":5,"h":10},
+	"sourceSize": {"w":5,"h":10}
+},
+"commander.png":
+{
+	"frame": {"x":49,"y":35,"w":17,"h":18},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":3,"y":3,"w":32,"h":30},
-	"sourceSize": {"w":39,"h":36}
+	"spriteSourceSize": {"x":0,"y":0,"w":17,"h":18},
+	"sourceSize": {"w":17,"h":19}
 },
-"explotionE4.png":
+"commanderHit.png":
 {
-	"frame": {"x":131,"y":1,"w":32,"h":32},
+	"frame": {"x":68,"y":35,"w":17,"h":18},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":4,"y":2,"w":32,"h":32},
-	"sourceSize": {"w":42,"h":39}
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":17,"h":18},
+	"sourceSize": {"w":17,"h":18}
 },
-"expoltionE1.png":
+"commanderHitMove.png":
 {
-	"frame": {"x":131,"y":87,"w":14,"h":15},
+	"frame": {"x":137,"y":1,"w":17,"h":17},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":17,"h":17},
+	"sourceSize": {"w":17,"h":17}
+},
+"commanderMove.png":
+{
+	"frame": {"x":153,"y":32,"w":17,"h":17},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":17,"h":17},
+	"sourceSize": {"w":17,"h":17}
+},
+"explosionE1.png":
+{
+	"frame": {"x":156,"y":1,"w":14,"h":15},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":3,"y":2,"w":14,"h":15},
 	"sourceSize": {"w":20,"h":20}
 },
-"galaga_spritesheet.png":
+"explosionE2.png":
 {
-	"frame": {"x":1,"y":1,"w":128,"h":128},
+	"frame": {"x":29,"y":37,"w":18,"h":18},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":1,"w":18,"h":18},
+	"sourceSize": {"w":23,"h":21}
+},
+"explosionE3.png":
+{
+	"frame": {"x":69,"y":1,"w":32,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":3,"w":32,"h":30},
+	"sourceSize": {"w":39,"h":36}
+},
+"explosionE4.png":
+{
+	"frame": {"x":35,"y":1,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":2,"w":32,"h":32},
+	"sourceSize": {"w":42,"h":39}
+},
+"explosion_1.png":
+{
+	"frame": {"x":1,"y":37,"w":26,"h":26},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":26,"h":26},
+	"sourceSize": {"w":27,"h":27}
+},
+"explosion_2.png":
+{
+	"frame": {"x":87,"y":33,"w":32,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":1,"w":32,"h":30},
+	"sourceSize": {"w":32,"h":31}
+},
+"explosion_3.png":
+{
+	"frame": {"x":1,"y":1,"w":32,"h":34},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
-	"sourceSize": {"w":128,"h":128}
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":34},
+	"sourceSize": {"w":32,"h":34}
+},
+"explosion_4.png":
+{
+	"frame": {"x":103,"y":1,"w":32,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":0,"w":32,"h":30},
+	"sourceSize": {"w":34,"h":31}
+},
+"icon_1.png":
+{
+	"frame": {"x":140,"y":48,"w":9,"h":14},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":0,"w":9,"h":14},
+	"sourceSize": {"w":11,"h":14}
+},
+"redBug.png":
+{
+	"frame": {"x":156,"y":18,"w":15,"h":12},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":15,"h":12},
+	"sourceSize": {"w":15,"h":12}
+},
+"redBugMove.png":
+{
+	"frame": {"x":140,"y":20,"w":11,"h":12},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":11,"h":12},
+	"sourceSize": {"w":11,"h":12}
+},
+"ship.png":
+{
+	"frame": {"x":121,"y":33,"w":17,"h":18},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":17,"h":18},
+	"sourceSize": {"w":18,"h":18}
+},
+"yellowBug.png":
+{
+	"frame": {"x":151,"y":51,"w":15,"h":12},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":15,"h":12},
+	"sourceSize": {"w":15,"h":12}
+},
+"yellowBugMove.png":
+{
+	"frame": {"x":140,"y":34,"w":11,"h":12},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":11,"h":12},
+	"sourceSize": {"w":11,"h":12}
 }},
 "meta": {
 	"app": "http://www.codeandweb.com/texturepacker",
 	"version": "1.0",
 	"image": "galaga_spritesheet.png",
 	"format": "RGBA8888",
-	"size": {"w":164,"h":130},
+	"size": {"w":172,"h":64},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:def22c689a7ecadf6b4380210594b119:3b96a2eab6212a6637815de270f84ac9:f8d768633b01fad61a6d0395b2f22cee$"
+	"smartupdate": "$TexturePacker:SmartUpdate:eef2252884f7adb227e8d19d8a747c42:fc82f92ca0c0dfe9b7797da3b119c6d9:f8d768633b01fad61a6d0395b2f22cee$"
 }
 }

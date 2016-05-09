@@ -10,7 +10,7 @@ $.getScript("js/bullets.js");
 
 function Ship(){
 
-    var ship = Player_Generator('galaga_ship.png');
+    var ship = Player_Generator('ship.png');
     
     
     ship.position.x = 200;
@@ -25,8 +25,8 @@ function Commanders(){
    var texture = new Array;
        texture.push("commander.png");
        texture.push("commanderMove.png");
-       texture.push("commanderDamage.png");
-       texture.push("commanderDamageMove.png");
+       texture.push("commanderHit.png");
+       texture.push("commanderHitMove.png");
 
     var commanders = new Array();
     var positions  = new Array();
@@ -38,7 +38,8 @@ function Commanders(){
 
     for (var index = 0; index < positions.length; index++) {
         commanders[index] = Player_Generator(texture);
-        commanders[index].position.set(positions[index].x, positions[index].y);
+        commanders[index][0].position.set(positions[index].x, positions[index].y);
+        commanders[index][1].position.set(positions[index].x, positions[index].y);
     }
 
 
@@ -77,7 +78,8 @@ function Red_Bugs(){
     for(var index = 0; index < positions.length; index++)
     {
         redBugs[index] = Player_Generator(texture);
-        redBugs[index].position.set(positions[index].x, positions[index].y);
+        redBugs[index][0].position.set(positions[index].x, positions[index].y);
+        redBugs[index][1].position.set(positions[index].x, positions[index].y);
     }
 
     return redBugs;
@@ -119,7 +121,8 @@ function Yellow_Bugs(){
     for (var index = 0; index < positions.length; index++)
     {
         yellowBugs[index] = Player_Generator(texture);
-        yellowBugs[index].position.set(positions[index].x, positions[index].y);
+        yellowBugs[index][0].position.set(positions[index].x, positions[index].y);
+        yellowBugs[index][1].position.set(positions[index].x, positions[index].y);
     }
 
     return yellowBugs;
@@ -127,26 +130,37 @@ function Yellow_Bugs(){
 
 function Player_Generator(texture){
 
-    var frames = [],
-        player;
+    var frames = [];
+    var player = [];
 
     if (texture instanceof Array) {
         for(var index = 0; index < texture.length; index++) {
             frames.push(PIXI.Texture.fromFrame(texture[index]));
         }
         // create a MovieClip(animation)
-        player = new PIXI.extras.MovieClip(frames);
+        player.push(new PIXI.extras.MovieClip(frames));
 
-        player.animationSpeed = 0.015;
-        player.play();
+        player[0].animationSpeed = 0.015;
+        player[0].play();
+
+        player[0].scale.x = 1.5;
+        player[0].scale.y = 1.5;
+        player[0].anchor.set(0.5);
+        
+        player.push(Explosion());
+
+        player[1].scale.x = 1.5;
+        player[1].scale.y = 1.5;
+        player[1].anchor.set(0.5);
 
     } else {
         player = new PIXI.Sprite(PIXI.Texture.fromFrame(texture));
+
+        player.scale.x = 1.5;
+        player.scale.y = 1.5;
+        player.anchor.set(0.5);
     }
 
-    player.scale.x = 1.5;
-    player.scale.y = 1.5;
-    player.anchor.set(0.5);
 
     return player;
 }
