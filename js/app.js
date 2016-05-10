@@ -52,6 +52,7 @@ function onAssetsLoader(){
         stage.addChild(redBugs[index][0]);
     }
 
+
     animate();
 }
 
@@ -64,8 +65,7 @@ function animate() {
     if (right)
         ship.position.x += 2;
 
-    redBugs    = enemyMove(redBugs);
-    yellowBugs = enemyMove(yellowBugs);
+   
 
     for (var index = 0; index < bullets.length; index++){
         if (bullets[index].visible) {
@@ -85,6 +85,9 @@ function animate() {
             }
         }
     }
+
+    redBugs    = enemyMove(redBugs);
+    yellowBugs = enemyMove(yellowBugs);
 
     requestAnimationFrame(animate);
 }

@@ -73,6 +73,8 @@ function filterCollision(bugs, bullet){
                 bullet.visible = false;
                 bullet.used    = false;
                 bugs[index][0].visible = false;
+                bugs[index][1].position.x = bugs[index][0].position.x;
+                bugs[index][1].position.y = bugs[index][0].position.y;
                 bugs[index][1].visible = true;
                 bugs[index][1].play();
                 break;
