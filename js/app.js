@@ -1,6 +1,8 @@
 var PIXI = require("pixi.js"),
     $    = require("jquery");
 
+
+
 $.getScript("js/players_classes.js");
 $.getScript("js/movement.js");
 $.getScript("js/bullets.js");
