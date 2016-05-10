@@ -51,7 +51,7 @@ function onAssetsLoader(){
         stage.addChild(redBugs[index][1]);
         stage.addChild(redBugs[index][0]);
     }
-
+    
 
     animate();
 }
