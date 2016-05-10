@@ -63,13 +63,13 @@ function mapInit(){
 
 mapInit();
 
-function enemyMove(bugArray){
+function enemyMove(bugArray, iteration){
 
     if(bugArray.length/2 == redRight.size)
-        bugArray = filterBugs(bugArray, redRight, redLeft, 4);
+        bugArray = filterBugs(bugArray, redRight, redLeft, bugArray.length/4 - 1);
         
     else if(bugArray.length/2 == yellowLeft.size)
-        bugArray = filterBugs(bugArray, yellowRight, yellowLeft, 5);
+        bugArray = filterBugs(bugArray, yellowRight, yellowLeft, bugArray.length/4 - 1);
 
     return bugArray;
 }
@@ -79,12 +79,27 @@ function filterBugs(bugArray, mappingRight, mappingLeft, middle) {
     
     for (var index = 0; index < bugArray.length; index++){
 
-        if(mappingRight.has(index) && tag) {
-            if(bugArray[middle][0].position.x > 220){
-                tag = false;
-                index--;
-                bugArray[index][0].position.x -= mappingRight.get(index);
-                bugArray[index][1].position.x -= mappingRight.get(index);
+        if(mappingLeft.has(index) && tag){
+            bugArray[index][0].position.x -= mappingLeft.get(index);
+            bugArray[index][1].position.x -= mappingLeft.get(index);
+        }
+        else if(mappingLeft.has(index) && !tag) {
+            bugArray[index][0].position.x += mappingLeft.get(index);
+            bugArray[index][1].position.x += mappingLeft.get(index);
+        }
+
+        if(mappingRight.has(index) && tag){
+            
+            if(bugArray[middle][0].position.x <= 175){
+
+                bugArray[index][0].position.x += mappingRight.get(index);
+                bugArray[index][1].position.x += mappingRight.get(index);
+                
+                if(index = bugArray.length) {
+                    console.log(bugArray[middle + 1][0].position.x + " false");
+
+                    tag = false;
+                }
             }
             else{
                 bugArray[index][0].position.x += mappingRight.get(index);
@@ -92,11 +107,17 @@ function filterBugs(bugArray, mappingRight, mappingLeft, middle) {
             }
         } 
         else if (mappingRight.has(index) && !tag) {
-            if(bugArray[middle][0].position.x <= 213) {
-                tag = true;
-                index--;
-                bugArray[index][0].position.x += mappingRight.get(index);
-                bugArray[index][1].position.x += mappingRight.get(index);
+            
+            if(bugArray[middle][0].position.x >= 188) {
+
+                bugArray[index][0].position.x -= mappingRight.get(index);
+                bugArray[index][1].position.x -= mappingRight.get(index);
+                
+                if(index = bugArray.length){
+                    
+                    console.log(bugArray[middle + 1][0].position.x + " true");
+                    tag = true;
+                }
             }
             else{
                 bugArray[index][0].position.x -= mappingRight.get(index);
@@ -104,14 +125,7 @@ function filterBugs(bugArray, mappingRight, mappingLeft, middle) {
             }
         }
 
-        if(mappingLeft.has(index) && tag){
-            bugArray[index][0].position.x -= mappingLeft.get(index);
-            bugArray[index][1].position.x -= mappingLeft.get(index);
-        } 
-        else if(mappingLeft.has(index) && !tag) {
-            bugArray[index][0].position.x += mappingLeft.get(index);
-            bugArray[index][1].position.x += mappingLeft.get(index);
-        }
+
     }
     
     return bugArray;

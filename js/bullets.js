@@ -35,7 +35,7 @@ function Weapon(){
                                     bullets[0].visible = true;
                                    // console.log(bullets.visible + ", " + shooter.position.y);
                                     bullets[0].position.x  = shooter.position.x;
-                                    bullets[0].position.y  = shooter.position.y;
+                                    bullets[0].position.y  = shooter.position.y - 15;
                                     //console.log(bullets.position.y);
                                     bullets.bulletsShot++;
                                     console.log("bullet shot 1");
@@ -45,7 +45,7 @@ function Weapon(){
                                     bullets[1].visible = true;
                                    // console.log(bullets.visible + ", " + shooter.position.y);
                                     bullets[1].position.x  = shooter.position.x;
-                                    bullets[1].position.y  = shooter.position.y;
+                                    bullets[1].position.y  = shooter.position.y - 15;
                                     //console.log(bullets.position.y);
 
                                     bullets.bulletsShot++;
@@ -80,7 +80,6 @@ function filterCollision(bugs, bullet){
         }
     }
 }
-
 
 function Explosion(){
     var texture = [];

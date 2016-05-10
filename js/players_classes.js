@@ -140,7 +140,7 @@ function Player_Generator(texture){
         // create a MovieClip(animation)
         player.push(new PIXI.extras.MovieClip(frames));
 
-        player[0].animationSpeed = 0.0182;
+        player[0].animationSpeed = 0.018;
         player[0].play();
 
         player[0].scale.x = 1.5;
